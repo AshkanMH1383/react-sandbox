@@ -1,6 +1,5 @@
-
 import './App.css';
-import Card from './Card';
+import Card from './components/Card';
 import { Component , useState } from 'react';
 
 function App() {
@@ -11,22 +10,14 @@ function App() {
       { id : 3 , title : 'article 3' , body : 'article3 text'},
     ]
   })
-  setTimeout(()=> {
-  setArticleState({
-    articles : [
-      { id : 4 , title : 'article 4' , body : 'article4 text'},
-      { id : 5 , title : 'article 5' , body : 'article5 text'},
-      { id : 6 , title : 'article 6' , body : 'article6 text'},
-    ]
-  })
-},3000)
 
   return (
     <div className="App">
       <header className="App-header">
-          <Card title={ stateArticle.articles[0].title } body={ stateArticle.articles[0].body } />
-          <Card title={ stateArticle.articles[1].title } body={ stateArticle.articles[1].body } />
-          <Card title={ stateArticle.articles[2].title } body={ stateArticle.articles[2].body } />
+          {
+            stateArticle.articles.map((article) => <Card key={article.id} title={article.title} body={article.body} />)
+          }
+         
       </header>
     </div>
   );
