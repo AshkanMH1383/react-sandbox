@@ -1,6 +1,7 @@
 import './App.css';
 import Card from './components/Card';
 import { Component , useState } from 'react';
+import Slider from './components/Slider';
 
 function App() {
   const [stateArticle , setArticleState] = useState({
@@ -17,8 +18,10 @@ function App() {
           {
             stateArticle.articles.map((article) => <Card key={article.id} title={article.title} body={article.body} />)
           }
-         
+          <Slider />
       </header>
+
+     
     </div>
   );
 }
